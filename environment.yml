@@ -8,6 +8,7 @@ name: "base"
 # these restrictions completely.
 channels:
   - conda-forge
+  - nodefaults
 dependencies:
   - astropy<7.0.0
   - matplotlib
