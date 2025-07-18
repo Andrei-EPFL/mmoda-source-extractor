@@ -13,10 +13,11 @@ This tool can be used to extract luminous sources from sky images. It is entirel
 Important input parameters:
 
 1. **Input file** (`.fits` or `.tiff`) - A single-channel sky image to analyze.
-2. **Mask file** (`.fits` or `.tiff`; optional) - A binary 2D array (values 0 and 1). Pixels with value `1` are ignored during source extraction.
+2. **Mask file** (`.fits` or `.tiff`; optional) - A 2D numpy array. True values, or numeric values greater than **maskthresh**, are considered masked. Masking a pixel is equivalent to setting data to zero and noise (if present) to infinity.
 3. **thresh** - Threshold pixel value for detection: `thresh * err[j, i]`, where `err[j, i]` is given by the **err_option** parameter; `j` and `i` represent the pixel indices
 4. **err_option** - Sets the error that is taken into account into the detection of sources:
 
+   - `none` - The value of **thresh** is taken as an absolute threshold.
    - `array_rms` - An array of the background RMS, i.e. for each individual pixel.
    - `float_globalrms` - A float value of the global background RMS.
 
